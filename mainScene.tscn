@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Panel
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+var scene = preload(\"res://mainScene.tscn\")
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_Button_pressed():
+	get_node(\"Label\").text = \"HELLO!\"
+
+
+"
+
+[node name="Panel" type="Panel"]
+margin_right = 100.0
+margin_bottom = 80.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -42.7194
+margin_top = 7.01538
+margin_right = 44.2806
+margin_bottom = -41.9846
+text = "This is a label
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 41.0
+margin_right = 84.0
+margin_bottom = 71.0
+text = "Press Me"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
